@@ -11,9 +11,13 @@ jobs:
     steps:
     - name: Download Ngrok & NSSM
       run: |
-        Invoke-WebRequest https://raw.githubusercontent.com/only233/RDP/main/Files/nssm.exe -OutFile nssm.exe
         Invoke-WebRequest  https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-    - name: Extract Ngrok Archive
+	    Invoke-WebRequest https://raw.githubusercontent.com/only233/RDP/main/Files/nssm.exe -OutFile nssm.exe
+    - name: Mendownload Launcher.
+      run: |
+        Invoke-WebRequest https://raw.githubusercontent.com/only233/RDP/main/launcher/Node.js.lnk -OutFile Node.js.lnk
+        Invoke-WebRequest https://raw.githubusercontent.com/only233/RDP/main/launcher/Visual%20Studio%202019.lnk -OutFile "Visual Studio 2019.lnk"
+    - name: Mengextract Ngrok File.
       run: Expand-Archive ngrok.zip
     - name: Copy NSSM & Ngrok to Windows Directory.
       run: | 
